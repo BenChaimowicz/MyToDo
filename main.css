@@ -1,0 +1,49 @@
+html{
+    height: 100%;
+}
+body {
+    height: inherit;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    display: flex;
+}
+#pageContainer{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-flow: column nowrap;
+}
+#addBtn{
+    width: 25%;
+    height: 10%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#listContainer{
+    align-self: center;
+    height: 50%;
+    width: 50%;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+ul li {
+    list-style: none;
+    cursor: pointer;
+    color: rgb(1, 1, 117);
+    background-color: rgb(125, 248, 207);
+    text-align: center;
+    user-select: none;
+    font-size: 22px;
+    padding: 12px 8px 12px 40px;
+    border: 1px rgb(142, 3, 255) solid;
+}
+ul li:hover{
+    transition: 0.5s;
+    background-color: rgb(75, 180, 180);
+    user-select: none;
+}

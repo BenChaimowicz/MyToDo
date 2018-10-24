@@ -1,0 +1,18 @@
+"use strict";
+const addBtn = document.querySelector('#addBtn');
+const dialog = document.createElement('DIALOG');
+document.getElementById('pageContainer').appendChild(dialog);
+dialog.open = false;
+const cancelBtn = document.createElement('button');
+dialog.appendChild(cancelBtn);
+cancelBtn.setAttribute('type', 'button');
+cancelBtn.innerHTML = 'x';
+const confirmBtn = document.createElement('button');
+dialog.appendChild(confirmBtn);
+confirmBtn.setAttribute('type', 'button');
+confirmBtn.innerHTML = '+';
+const txtInput = document.createElement('input');
+dialog.appendChild(txtInput);
+txtInput.setAttribute('type', 'text');
+txtInput.setAttribute('autofocus', 'true');
+const list = document.querySelector('#TDList');
