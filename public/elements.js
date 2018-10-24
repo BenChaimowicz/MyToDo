@@ -16,4 +16,3 @@ dialog.appendChild(txtInput);
 txtInput.setAttribute('type', 'text');
 txtInput.setAttribute('autofocus', 'true');
 const list = document.querySelector('#TDList');
-const database = firebase.database();
