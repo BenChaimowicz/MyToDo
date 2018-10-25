@@ -1,16 +1,16 @@
 "use strict";
 class Todo {
     constructor(id, mission, date) {
-        if (!id) {
+        if (id != null || id != undefined) {
+            this._dateCreated = date;
+            this._mission = mission;
+            this._id = id;
+        }
+        else {
             dialog.showModal();
             txtInput.value = '';
             confirmBtn.onclick = () => { this.setMission(); };
             cancelBtn.onclick = () => { dialog.close(); };
-        }
-        else {
-            this._dateCreated = date;
-            this._mission = mission;
-            this._id = id;
         }
     }
     get ID() {
