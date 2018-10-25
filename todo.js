@@ -2,6 +2,7 @@
 class Todo {
     constructor() {
         dialog.showModal();
+        txtInput.value = '';
         confirmBtn.onclick = () => { this.setMission(); };
         cancelBtn.onclick = () => { dialog.close(); };
     }
@@ -22,15 +23,20 @@ class Todo {
     }
     createListItem() {
         dialog.close();
-        this._id = IDCounter;
-        this._dateCreated = new Date();
+        this._id = TDlist.FindFreeID();
+        this._dateCreated = this.getDate(new Date());
         TDlist.addToDo(this);
-        IDCounter++;
     }
     getMission() {
         return this._mission;
     }
-    getDate() {
-        return (this._dateCreated.toDateString() + ' - ' + this._dateCreated.toLocaleTimeString());
+    getDate(date) {
+        if (date) {
+            return (date.toDateString() + ' - ' + date.toLocaleTimeString());
+        }
+        else {
+            return (this._dateCreated);
+        }
     }
 }
+//# sourceMappingURL=todo.js.map

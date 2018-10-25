@@ -12,14 +12,18 @@
 
 <body>
     <div id="pageContainer">
-        <button id="addBtn" type="button">Add ToDo...</button>
+        <div id="buttonContainer">
+            <button id="addBtn" type="button">Add ToDo...</button>
+            <button id="rmvBtn" type="button">Remove</button>
+        </div>
         <div id="listContainer">
             <ul id="TDList">
 
             </ul>
         </div>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-database.js"></script>
     <script src="elements.js"></script>
     <script src="todo.js"></script>
     <script src="List.js"></script>

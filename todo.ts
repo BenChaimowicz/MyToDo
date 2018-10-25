@@ -1,24 +1,25 @@
 class Todo {
     private _id: number;
     private _mission: string;
-    private _dateCreated: Date;
-    
+    private _dateCreated: string;
+
     constructor() {
         dialog.showModal();
+        txtInput.value = '';
         confirmBtn.onclick = () => { this.setMission() };
         cancelBtn.onclick = () => { dialog.close(); };
     }
 
-    public get ID(): number{
+    public get ID(): number {
         return this._id;
     }
     public setMission() {
         let str: string = txtInput.value;
         const invalidMessage: string = 'Invalid Entry!';
-        
+
         if (str === "") {
             alert(invalidMessage);
-        } else { 
+        } else {
             this._mission = str;
             this.createListItem();
         };
@@ -26,18 +27,21 @@ class Todo {
 
     private createListItem() {
         dialog.close();
-        this._id = IDCounter;
-        this._dateCreated = new Date();
+        this._id = TDlist.FindFreeID();
+        this._dateCreated = this.getDate(new Date());
         TDlist.addToDo(this);
-        IDCounter++;
 
     }
 
-    public getMission(): string{
+    public getMission(): string {
         return this._mission;
     }
 
-    public getDate(): string{
-        return (this._dateCreated.toDateString()+ ' - ' + this._dateCreated.toLocaleTimeString());
+    public getDate(date?: Date): string {
+        if (date) {
+            return (date.toDateString() + ' - ' + date.toLocaleTimeString());
+        } else {
+            return (this._dateCreated);
+        }
     }
 }

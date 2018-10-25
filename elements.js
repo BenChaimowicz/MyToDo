@@ -1,5 +1,6 @@
 "use strict";
 const addBtn = document.querySelector('#addBtn');
+const rmvBtn = document.querySelector('#rmvBtn');
 const dialog = document.createElement('DIALOG');
 document.getElementById('pageContainer').appendChild(dialog);
 dialog.open = false;
@@ -16,4 +17,16 @@ dialog.appendChild(txtInput);
 txtInput.setAttribute('type', 'text');
 txtInput.setAttribute('autofocus', 'true');
 const list = document.querySelector('#TDList');
-const database = firebase.database();
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyB7bYleRvnUrm5FDaLce-TsQxfEbeS_rXc",
+    authDomain: "simplesttodo.firebaseapp.com",
+    databaseURL: "https://simplesttodo.firebaseio.com",
+    projectId: "simplesttodo",
+    storageBucket: "simplesttodo.appspot.com",
+    messagingSenderId: "285441730860"
+};
+firebase.initializeApp(config);
+const TDdatabase = firebase.database();
+const listRef = TDdatabase.ref('TDList/');
+//# sourceMappingURL=elements.js.map

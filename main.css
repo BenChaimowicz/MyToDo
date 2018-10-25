@@ -14,10 +14,28 @@ body {
     height: 100%;
     width: 100%;
     flex-flow: column nowrap;
+    background-color: rgb(109, 107, 107);
 }
-#addBtn{
+#buttonContainer{
+    display: flex;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 30px;
     width: 25%;
     height: 10%;
+
+    background-color: rgb(109, 107, 107);
+}
+#rmvBtn{
+    width: 25%;
+    height: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+#addBtn{
+    width: 75%;
+    height: 80%;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;

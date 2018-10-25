@@ -1,4 +1,5 @@
 const addBtn: HTMLButtonElement = document.querySelector('#addBtn');
+const rmvBtn: HTMLButtonElement = document.querySelector('#rmvBtn');
 
 const dialog: HTMLDialogElement = document.createElement('DIALOG') as HTMLDialogElement;
 document.getElementById('pageContainer').appendChild(dialog);
@@ -33,4 +34,5 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var database = firebase.database();
+const TDdatabase = firebase.database();
+const listRef = TDdatabase.ref('TDList/');
