@@ -20,3 +20,17 @@ txtInput.setAttribute('type', 'text');
 txtInput.setAttribute('autofocus', 'true');
 
 const list: HTMLUListElement = document.querySelector('#TDList');
+
+declare const firebase: typeof import('firebase');
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyB7bYleRvnUrm5FDaLce-TsQxfEbeS_rXc",
+    authDomain: "simplesttodo.firebaseapp.com",
+    databaseURL: "https://simplesttodo.firebaseio.com",
+    projectId: "simplesttodo",
+    storageBucket: "simplesttodo.appspot.com",
+    messagingSenderId: "285441730860"
+};
+firebase.initializeApp(config);
+
+var database = firebase.database();
