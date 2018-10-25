@@ -78,14 +78,19 @@ class TDlist {
     }
 
     public static updateDB() {
-        listRef.once('value').then(function (snapShot) {
-            snapShot.forEach(function (childSnapShot) {
-                let key = childSnapShot.key;
-                console.log(key);
-                let TDdata = childSnapShot.val();
-                console.log(TDdata);
-            })
-        }, this.noDataInDB);
+        listRef.once('value').then(TDlist.getDataFromDB, TDlist.noDataInDB);
+    }
+
+    private static getDataFromDB(data) {
+        data.forEach(function (childData) {
+            let cData = childData.val();
+            console.log(cData._id + cData._mission + cData._dateCreated);
+            let dbToDo: Todo = new Todo(cData._id, cData._mission, cData._dateCreated);
+            console.log(dbToDo);
+            TDlist.todos.push(dbToDo);
+            console.log(childData.val());
+        });
+        TDlist.refreshList();
     }
     private static noDataInDB(err) {
         console.log(err);

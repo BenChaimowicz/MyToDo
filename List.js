@@ -67,14 +67,18 @@ class TDlist {
         return idArray;
     }
     static updateDB() {
-        listRef.once('value').then(function (snapShot) {
-            snapShot.forEach(function (childSnapShot) {
-                let key = childSnapShot.key;
-                console.log(key);
-                let TDdata = childSnapShot.val();
-                console.log(TDdata);
-            });
-        }, this.noDataInDB);
+        listRef.once('value').then(TDlist.getDataFromDB, TDlist.noDataInDB);
+    }
+    static getDataFromDB(data) {
+        data.forEach(function (childData) {
+            let cData = childData.val();
+            console.log(cData._id + cData._mission + cData._dateCreated);
+            let dbToDo = new Todo(cData._id, cData._mission, cData._dateCreated);
+            console.log(dbToDo);
+            TDlist.todos.push(dbToDo);
+            console.log(childData.val());
+        });
+        TDlist.refreshList();
     }
     static noDataInDB(err) {
         console.log(err);

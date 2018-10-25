@@ -3,17 +3,24 @@ class Todo {
     private _mission: string;
     private _dateCreated: string;
 
-    constructor() {
-        dialog.showModal();
-        txtInput.value = '';
-        confirmBtn.onclick = () => { this.setMission() };
-        cancelBtn.onclick = () => { dialog.close(); };
+    constructor(id?: number, mission?: string, date?: string)
+    {
+        if (!id) {
+            dialog.showModal();
+            txtInput.value = '';
+            confirmBtn.onclick = () => { this.setMission() };
+            cancelBtn.onclick = () => { dialog.close(); };        
+        } else {
+            this._dateCreated = date;
+            this._mission = mission;
+            this._id = id;
+        }
     }
 
     public get ID(): number {
         return this._id;
     }
-    public setMission() {
+    public setMission(override?:boolean) {
         let str: string = txtInput.value;
         const invalidMessage: string = 'Invalid Entry!';
 

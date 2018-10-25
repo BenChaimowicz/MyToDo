@@ -1,15 +1,22 @@
 "use strict";
 class Todo {
-    constructor() {
-        dialog.showModal();
-        txtInput.value = '';
-        confirmBtn.onclick = () => { this.setMission(); };
-        cancelBtn.onclick = () => { dialog.close(); };
+    constructor(id, mission, date) {
+        if (!id) {
+            dialog.showModal();
+            txtInput.value = '';
+            confirmBtn.onclick = () => { this.setMission(); };
+            cancelBtn.onclick = () => { dialog.close(); };
+        }
+        else {
+            this._dateCreated = date;
+            this._mission = mission;
+            this._id = id;
+        }
     }
     get ID() {
         return this._id;
     }
-    setMission() {
+    setMission(override) {
         let str = txtInput.value;
         const invalidMessage = 'Invalid Entry!';
         if (str === "") {
